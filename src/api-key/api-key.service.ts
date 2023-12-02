@@ -8,9 +8,10 @@ import { ApiKey } from './interfaces/api-key.interface';
 export class ApiKeyService {
   private readonly apiKeys: Map<string, ApiKey> = new Map<string, ApiKey>();
 
-  generateApiKey(): ApiKey {
+  generateApiKey(name: string): ApiKey {
     const maxQuotaPerDay = 200000;
     const apiKey: ApiKey = {
+      name,
       key: uuidv4(),
       remainingQuota: maxQuotaPerDay,
       maxQuotaPerDay,

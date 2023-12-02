@@ -3,13 +3,13 @@ syntax = "proto3";
 package apikey;
 
 service ApiKeyService {
-  rpc Generate (GenerateByName) returns (Key) {}
+  rpc GenerateApiKey (KeyByName) returns (KeyGenerated) {}
 }
 
-message GenerateByName {
+message KeyByName {
   string name = 1;
 }
 
-message Key {
+message KeyGenerated {
   string key = 1;
 }
