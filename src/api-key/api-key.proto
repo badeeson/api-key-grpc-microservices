@@ -4,6 +4,8 @@ package apikey;
 
 service ApiKeyService {
   rpc GenerateApiKey (KeyByName) returns (KeyGenerated) {}
+  rpc ValidateApiKey (Key) returns (IsKeyValid) {}
+  rpc GetRemainingQuota (Key) returns (KeyRemainingQuota) {}
 }
 
 message KeyByName {
@@ -12,4 +14,19 @@ message KeyByName {
 
 message KeyGenerated {
   string key = 1;
+  string name = 2;
+}
+
+message Key {
+  string key = 1;
+}
+
+message IsKeyValid {
+  string key = 1;
+  bool isValid = 2;
+}
+
+message KeyRemainingQuota {
+  string key = 1;
+  int32 remainingQuota = 2;
 }
