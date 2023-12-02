@@ -38,4 +38,12 @@ export class ApiKeyService {
       this.apiKeys.set(key, apiKey);
     }
   }
+
+  getAllApiKeys(): ApiKey[] {
+    return Array.from(this.apiKeys.values());
+  }
+
+  updateApiKey(apiKey: ApiKey): void {
+    this.apiKeys.set(apiKey.key, apiKey); // Update the API key in the Map
+  }
 }
