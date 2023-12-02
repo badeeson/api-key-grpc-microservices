@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package apikey;
+
+service ApiKeyService {
+  rpc Generate (GenerateByName) returns (Key) {}
+}
+
+message GenerateByName {
+  string name = 1;
+}
+
+message Key {
+  string key = 1;
+}
