@@ -11,13 +11,13 @@ export class ApiKeyController {
     return this.apiKeyService.generate(keyByName);
   }
 
-  @Get(':key')
-  validate(@Param('key') key: string) {
+  @Get()
+  validate(@Query('key') key: string) {
     return this.apiKeyService.validate(key);
   }
 
-  @Get()
-  remainingQuota(@Query('key') key: string) {
+  @Get('remaining/:key')
+  remainingQuota(@Param('key') key: string) {
     return this.apiKeyService.remainingQuota(key);
   }
 }

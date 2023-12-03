@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { AppModule } from './app.module';
 import { join } from 'path';
+import { AppModule } from './app.module';
 import { API_KEY_PACKAGE_NAME } from '@app/common';
 
 async function bootstrap() {
