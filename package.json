@@ -1,8 +1,8 @@
 {
-  "name": "api-key-service",
+  "name": "api-key-grpc-microservices",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Built with NestJS",
+  "author": "Badeeson",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
