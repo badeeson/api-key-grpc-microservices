@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { KeyByName } from '@app/common';
 import { ApiKeyService } from './api-key.service';
 
@@ -13,6 +13,11 @@ export class ApiKeyController {
 
   @Get(':key')
   validate(@Param('key') key: string) {
-    return this.apiKeyService.validate({ key });
+    return this.apiKeyService.validate(key);
+  }
+
+  @Get()
+  remainingQuota(@Query('key') key: string) {
+    return this.apiKeyService.remainingQuota(key);
   }
 }

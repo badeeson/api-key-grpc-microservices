@@ -17,7 +17,11 @@ export class ApiKeyService implements OnModuleInit {
     return this.apiKeyService.generateApiKey(keyByName);
   }
 
-  validate(key: Key) {
-    return this.apiKeyService.validateApiKey(key);
+  validate(key: string) {
+    return this.apiKeyService.validateApiKey({ key });
+  }
+
+  remainingQuota(key: string) {
+    return this.apiKeyService.getRemainingQuota({ key });
   }
 }

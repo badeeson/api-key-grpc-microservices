@@ -23,10 +23,17 @@ export interface IsKeyValid {
   isValid: boolean;
 }
 
+export interface KeyRemainingQuota {
+  key: string;
+  remainingQuota: number;
+}
+
 export interface ApiKeyServiceClient {
   generateApiKey(request: KeyByName): Observable<KeyGenerated>;
 
   validateApiKey(request: Key): Observable<IsKeyValid>;
+
+  getRemainingQuota(request: Key): Observable<KeyRemainingQuota>;
   // findAllUsers(request: Empty): Observable<Users>;
 
   // findOneUser(request: FindOneUserDto): Observable<User>;
