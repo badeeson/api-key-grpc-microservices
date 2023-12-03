@@ -1,1 +1,1 @@
-export const API_KEY_SERVICE = 'apikey';
+export const GRPC_CLIENT_SERVICE = 'grpc-client';
