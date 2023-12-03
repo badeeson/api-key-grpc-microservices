@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { KeyByName } from '@app/common';
 import { ApiKeyService } from './api-key.service';
 
@@ -8,7 +8,11 @@ export class ApiKeyController {
 
   @Post()
   generate(@Body() keyByName: KeyByName) {
-    console.log('generate key', keyByName)
     return this.apiKeyService.generate(keyByName);
+  }
+
+  @Get(':key')
+  validate(@Param('key') key: string) {
+    return this.apiKeyService.validate({ key });
   }
 }

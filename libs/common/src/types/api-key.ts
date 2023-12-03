@@ -14,9 +14,19 @@ export interface KeyGenerated {
   name: string;
 }
 
+export interface Key {
+  key: string;
+}
+
+export interface IsKeyValid {
+  key: string;
+  isValid: boolean;
+}
+
 export interface ApiKeyServiceClient {
   generateApiKey(request: KeyByName): Observable<KeyGenerated>;
 
+  validateApiKey(request: Key): Observable<IsKeyValid>;
   // findAllUsers(request: Empty): Observable<Users>;
 
   // findOneUser(request: FindOneUserDto): Observable<User>;

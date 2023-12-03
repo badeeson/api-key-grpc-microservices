@@ -1,6 +1,6 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
-import { API_KEY_SERVICE_NAME, ApiKeyServiceClient, KeyByName } from '@app/common';
+import { API_KEY_SERVICE_NAME, ApiKeyServiceClient, Key, KeyByName } from '@app/common';
 import { GRPC_CLIENT_SERVICE } from './constants';
 
 @Injectable()
@@ -15,5 +15,9 @@ export class ApiKeyService implements OnModuleInit {
 
   generate(keyByName: KeyByName) {
     return this.apiKeyService.generateApiKey(keyByName);
+  }
+
+  validate(key: Key) {
+    return this.apiKeyService.validateApiKey(key);
   }
 }
