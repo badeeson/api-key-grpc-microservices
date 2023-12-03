@@ -4,7 +4,7 @@ import { Metadata, ServerUnaryCall } from '@grpc/grpc-js';
 import { ApiKeyService } from './api-key.service';
 import { IsKeyValid, Key, KeyByName, KeyGenerated, KeyRemainingQuota } from '@app/common';
 
-@Controller('api-keys')
+@Controller()
 export class ApiKeyController {
   constructor(private readonly apiKeyService: ApiKeyService) {}
 
