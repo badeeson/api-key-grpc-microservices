@@ -8,7 +8,7 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       package: 'apikey',
-      protoPath: join(__dirname, 'api-key/api-key.proto'),
+      protoPath: join(__dirname, '../../../proto/api-key.proto'),
     },
   });
   await app.listen();
