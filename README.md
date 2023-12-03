@@ -35,6 +35,9 @@ $ npm install
 ## Running the app
 
 ```bash
+# start-all microservices
+$ make start-all
+
 # development
 $ npm run start
 
