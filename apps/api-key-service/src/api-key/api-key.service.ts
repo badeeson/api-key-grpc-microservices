@@ -1,5 +1,3 @@
-// api-key.service.ts
-
 import { Injectable } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
 import { ApiKey } from './interfaces/api-key.interface';
@@ -45,5 +43,10 @@ export class ApiKeyService {
 
   updateApiKey(apiKey: ApiKey): void {
     this.apiKeys.set(apiKey.key, apiKey); // Update the API key in the Map
+  }
+
+  getApiKeyDetails(key: string): ApiKey {
+    const apiKey = this.apiKeys.get(key);
+    return apiKey;
   }
 }

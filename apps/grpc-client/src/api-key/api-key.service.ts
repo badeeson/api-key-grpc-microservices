@@ -28,4 +28,8 @@ export class ApiKeyService implements OnModuleInit {
   getAllApiKeys() {
     return this.apiKeyService.getAllApiKeys({});
   }
+
+  getApiKeyDetails(key: string) {
+    return this.apiKeyService.getApiKeyDetails({ key });
+  }
 }

@@ -11,8 +11,8 @@ export class ApiKeyController {
     return this.apiKeyService.generate(keyByName);
   }
 
-  @Get()
-  validate(@Query('key') key: string) {
+  @Get('validate/:key')
+  validate(@Param('key') key: string) {
     return this.apiKeyService.validate(key);
   }
 
@@ -24,5 +24,10 @@ export class ApiKeyController {
   @Get('all')
   getAllApiKeys() {
     return this.apiKeyService.getAllApiKeys();
+  }
+
+  @Get()
+  getApiKeyDetails(@Query('key') key: string) {
+    return this.apiKeyService.getApiKeyDetails(key);
   }
 }

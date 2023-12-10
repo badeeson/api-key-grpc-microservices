@@ -38,4 +38,6 @@ export interface ApiKeyServiceClient {
   getRemainingQuota(request: Key): Observable<KeyRemainingQuota>;
 
   getAllApiKeys(request: Empty): Observable<ApiKey[]>;
+
+  getApiKeyDetails(request: Key): Observable<ApiKey>;
 }

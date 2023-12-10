@@ -35,4 +35,11 @@ export class ApiKeyController {
     const AllApiKeys = this.apiKeyService.getAllApiKeys();
     return { apiKeys: AllApiKeys };
   }
+
+  @GrpcMethod('ApiKeyService', 'GetApiKeyDetails')
+  getApiKeyDetails(data: Key, metadata: Metadata, call: ServerUnaryCall<any, any>): ApiKey {
+    const key = data.key;
+    const ApiKeyDetails = this.apiKeyService.getApiKeyDetails(key);
+    return ApiKeyDetails;
+  }
 }

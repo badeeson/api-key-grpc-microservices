@@ -7,6 +7,7 @@ service ApiKeyService {
   rpc ValidateApiKey (Key) returns (IsKeyValid) {}
   rpc GetRemainingQuota (Key) returns (KeyRemainingQuota) {}
   rpc GetAllApiKeys (Empty) returns (ApiKeys) {}
+  rpc GetApiKeyDetails (Key) returns (ApiKey) {}
 }
 
 message KeyByName {
