@@ -6,6 +6,7 @@ service ApiKeyService {
   rpc GenerateApiKey (KeyByName) returns (KeyGenerated) {}
   rpc ValidateApiKey (Key) returns (IsKeyValid) {}
   rpc GetRemainingQuota (Key) returns (KeyRemainingQuota) {}
+  rpc GetAllApiKeys (Empty) returns (ApiKeys) {}
 }
 
 message KeyByName {
@@ -30,3 +31,17 @@ message KeyRemainingQuota {
   string key = 1;
   int32 remainingQuota = 2;
 }
+
+message ApiKey {
+  string name = 1;
+  string key = 2;
+  int32 remainingQuota = 3;
+  int32 maxQuotaPerDay = 4;
+  string createdAt = 5;
+}
+
+message ApiKeys {
+  repeated ApiKey apiKeys = 1;
+}
+
+message Empty {};

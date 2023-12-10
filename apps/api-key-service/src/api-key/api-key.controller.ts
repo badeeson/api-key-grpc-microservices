@@ -2,7 +2,8 @@ import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { Metadata, ServerUnaryCall } from '@grpc/grpc-js';
 import { ApiKeyService } from './api-key.service';
-import { IsKeyValid, Key, KeyByName, KeyGenerated, KeyRemainingQuota } from '@app/common';
+import { Empty, IsKeyValid, Key, KeyByName, KeyGenerated, KeyRemainingQuota } from '@app/common';
+import { ApiKey } from './interfaces/api-key.interface';
 
 @Controller()
 export class ApiKeyController {
@@ -27,5 +28,11 @@ export class ApiKeyController {
     const key = data.key;
     const remainingQuota = this.apiKeyService.getRemainingQuota(key);
     return { key, remainingQuota };
+  }
+
+  @GrpcMethod('ApiKeyService', 'GetAllApiKeys')
+  getAllApiKeys(data: Empty, metadata: Metadata, call: ServerUnaryCall<any, any>): { apiKeys: ApiKey[] } {
+    const AllApiKeys = this.apiKeyService.getAllApiKeys();
+    return { apiKeys: AllApiKeys };
   }
 }

@@ -24,4 +24,8 @@ export class ApiKeyService implements OnModuleInit {
   remainingQuota(key: string) {
     return this.apiKeyService.getRemainingQuota({ key });
   }
+
+  getAllApiKeys() {
+    return this.apiKeyService.getAllApiKeys({});
+  }
 }

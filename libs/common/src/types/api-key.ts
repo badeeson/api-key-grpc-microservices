@@ -1,3 +1,4 @@
+import { ApiKey } from "apps/api-key-service/src/api-key/interfaces/api-key.interface";
 import { Observable } from "rxjs";
 
 export const API_KEY_PACKAGE_NAME = "apikey";
@@ -26,10 +27,15 @@ export interface KeyRemainingQuota {
   remainingQuota: number;
 }
 
+export interface Empty {
+}
+
 export interface ApiKeyServiceClient {
   generateApiKey(request: KeyByName): Observable<KeyGenerated>;
 
   validateApiKey(request: Key): Observable<IsKeyValid>;
 
   getRemainingQuota(request: Key): Observable<KeyRemainingQuota>;
+
+  getAllApiKeys(request: Empty): Observable<ApiKey[]>;
 }

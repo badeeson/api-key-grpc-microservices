@@ -15,7 +15,7 @@ export class ApiKeyService {
       key: uuidv4(),
       remainingQuota: maxQuotaPerDay,
       maxQuotaPerDay,
-      createdAt: new Date(),
+      createdAt: new Date().toISOString(),
     };
 
     this.apiKeys.set(apiKey.key, apiKey);
