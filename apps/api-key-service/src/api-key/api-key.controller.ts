@@ -20,6 +20,7 @@ export class ApiKeyController {
   validateApiKey(data: Key, metadata: Metadata, call: ServerUnaryCall<any, any>): IsKeyValid {
     const key = data.key;
     const isValid = this.apiKeyService.validateApiKey(key);
+    this.apiKeyService.decrementQuota(key);
     return { key, isValid };
   }
 
